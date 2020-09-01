@@ -122,7 +122,7 @@ class StatementPageSpec extends WordSpec with Matchers {
       contentAsString(statementPageHtml) should include(
         """<p class="govuk-body">The service was last tested on 28 February 2020 and was checked for compliance with WCAG 2.1 AA.</p>""")
       contentAsString(statementPageHtml) should include(
-        """<p class="govuk-body">This page was prepared on 15 March 2020. It was last updated on 01 May 2020.</p>""")
+        """<p class="govuk-body">This page was published on 15 March 2020. It was last updated on 01 May 2020.</p>""")
     }
 
     "not include a list item of accessibility problems if accessibility problems is empty" in new Setup {
@@ -195,7 +195,7 @@ class StatementPageSpec extends WordSpec with Matchers {
 
       contentAsString(statementPageHtml) should include("""<h3 class="govuk-heading-m">Non-accessible content</h3>""")
       contentAsString(statementPageHtml) should include(
-        """<p class="govuk-body">The content listed below is non-accessible for the following reasons.</p>""")
+        """<p class="govuk-body">The content listed below is non-accessible for the following reasons.""")
       contentAsString(statementPageHtml) should include(
         """<h4 class="govuk-heading-s">Non-compliance with the accessibility regulations</h4>""")
 
@@ -260,6 +260,7 @@ class StatementPageSpec extends WordSpec with Matchers {
       serviceUrl                   = "/fully-accessible",
       contactFrontendServiceId     = "fas",
       complianceStatus             = FullCompliance,
+      automatedTestingOnly         = None,
       accessibilityProblems        = Seq(),
       milestones                   = Seq(),
       accessibilitySupportEmail    = None,
@@ -268,7 +269,8 @@ class StatementPageSpec extends WordSpec with Matchers {
       statementVisibility          = Draft,
       serviceLastTestedDate        = new GregorianCalendar(2020, Calendar.FEBRUARY, 28).getTime,
       statementCreatedDate         = new GregorianCalendar(2020, Calendar.MARCH, 15).getTime,
-      statementLastUpdatedDate     = new GregorianCalendar(2020, Calendar.MAY, 1).getTime
+      statementLastUpdatedDate     = new GregorianCalendar(2020, Calendar.MAY, 1).getTime,
+      testingNotes                 = None
     )
 
     val partiallyAccessibleServiceStatement = AccessibilityStatement(
@@ -279,6 +281,7 @@ class StatementPageSpec extends WordSpec with Matchers {
       serviceUrl               = "/partially-accessible",
       contactFrontendServiceId = "pas",
       complianceStatus         = PartialCompliance,
+      automatedTestingOnly     = None,
       accessibilityProblems = Seq(
         "This is the first accessibility problem",
         "And then this is another one",
@@ -294,7 +297,8 @@ class StatementPageSpec extends WordSpec with Matchers {
       statementVisibility          = Draft,
       serviceLastTestedDate        = new GregorianCalendar(2019, Calendar.APRIL, 21).getTime,
       statementCreatedDate         = new GregorianCalendar(2019, Calendar.JUNE, 14).getTime,
-      statementLastUpdatedDate     = new GregorianCalendar(2019, Calendar.OCTOBER, 7).getTime
+      statementLastUpdatedDate     = new GregorianCalendar(2019, Calendar.OCTOBER, 7).getTime,
+      testingNotes                 = None
     )
   }
 }

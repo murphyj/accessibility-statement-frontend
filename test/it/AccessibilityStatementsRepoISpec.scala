@@ -50,6 +50,7 @@ class AccessibilityStatementsRepoISpec extends WordSpec with Matchers with Eithe
     serviceUrl                   = "/foo",
     contactFrontendServiceId     = "foo",
     complianceStatus             = FullCompliance,
+    automatedTestingOnly         = None,
     accessibilityProblems        = Seq(),
     milestones                   = Seq(),
     accessibilitySupportEmail    = Some("foo@example.com"),
@@ -58,7 +59,8 @@ class AccessibilityStatementsRepoISpec extends WordSpec with Matchers with Eithe
     statementVisibility          = Public,
     serviceLastTestedDate        = new GregorianCalendar(2019, Calendar.DECEMBER, 9).getTime,
     statementCreatedDate         = new GregorianCalendar(2019, Calendar.SEPTEMBER, 23).getTime,
-    statementLastUpdatedDate     = new GregorianCalendar(2019, Calendar.APRIL, 1).getTime
+    statementLastUpdatedDate     = new GregorianCalendar(2019, Calendar.APRIL, 1).getTime,
+    testingNotes                 = None
   )
   private val fooStatementWelsh = fooStatement.copy(
     serviceDescription = "Mae'r gwasanaeth foo yn caniatáu ichi wneud foo"
@@ -71,6 +73,7 @@ class AccessibilityStatementsRepoISpec extends WordSpec with Matchers with Eithe
     serviceUrl               = "/bar",
     contactFrontendServiceId = "bar",
     complianceStatus         = PartialCompliance,
+    automatedTestingOnly     = None,
     accessibilityProblems = Seq(
       "Bar problem 1",
       "Bar problem 2"
@@ -85,7 +88,8 @@ class AccessibilityStatementsRepoISpec extends WordSpec with Matchers with Eithe
     statementVisibility          = Public,
     serviceLastTestedDate        = new GregorianCalendar(2019, Calendar.DECEMBER, 9).getTime,
     statementCreatedDate         = new GregorianCalendar(2019, Calendar.SEPTEMBER, 23).getTime,
-    statementLastUpdatedDate     = new GregorianCalendar(2019, Calendar.APRIL, 1).getTime
+    statementLastUpdatedDate     = new GregorianCalendar(2019, Calendar.APRIL, 1).getTime,
+    testingNotes                 = None
   )
   private val barStatementWelsh = barStatement.copy(
     serviceDescription = "Mae'r gwasanaeth bar yn caniatáu ichi wneud bar"

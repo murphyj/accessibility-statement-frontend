@@ -28,6 +28,7 @@ case class AccessibilityStatement(
   serviceUrl: String,
   contactFrontendServiceId: String,
   complianceStatus: ComplianceStatus,
+  automatedTestingOnly: Option[Boolean],
   accessibilityProblems: Seq[String],
   milestones: Seq[Milestone],
   accessibilitySupportEmail: Option[String],
@@ -36,11 +37,18 @@ case class AccessibilityStatement(
   statementVisibility: Visibility,
   serviceLastTestedDate: Date,
   statementCreatedDate: Date,
-  statementLastUpdatedDate: Date) {
+  statementLastUpdatedDate: Date,
+  testingNotes: Option[String]) {
 
   val isFullyCompliant: Boolean = complianceStatus match {
     case FullCompliance    => true
     case PartialCompliance => false
+    case NoCompliance      => false
+  }
+  val isNonCompliant: Boolean = complianceStatus match {
+    case FullCompliance    => false
+    case PartialCompliance => false
+    case NoCompliance      => true
   }
 }
 

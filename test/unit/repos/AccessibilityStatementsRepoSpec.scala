@@ -69,6 +69,7 @@ class AccessibilityStatementsRepoSpec
     serviceUrl                   = "/disguised-remuneration",
     contactFrontendServiceId     = "disguised-remuneration",
     complianceStatus             = FullCompliance,
+    automatedTestingOnly         = None,
     accessibilityProblems        = Seq(),
     milestones                   = Seq(),
     accessibilitySupportEmail    = None,
@@ -77,7 +78,8 @@ class AccessibilityStatementsRepoSpec
     statementVisibility          = Public,
     serviceLastTestedDate        = new GregorianCalendar(2019, Calendar.DECEMBER, 9).getTime,
     statementCreatedDate         = new GregorianCalendar(2019, Calendar.SEPTEMBER, 23).getTime,
-    statementLastUpdatedDate     = new GregorianCalendar(2019, Calendar.APRIL, 1).getTime
+    statementLastUpdatedDate     = new GregorianCalendar(2019, Calendar.APRIL, 1).getTime,
+    testingNotes                 = None
   )
   private val fooStatementWelsh = fooStatement.copy(
     serviceDescription =

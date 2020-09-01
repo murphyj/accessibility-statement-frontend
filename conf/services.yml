@@ -8,3 +8,5 @@ services:
   - example-partially-compliant
   - online-payments
   - pay-what-you-owe-in-instalments
+  - example-noncompliant
+  - example-automated-testing-only

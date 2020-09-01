@@ -35,6 +35,7 @@ case class TestAccessibilityStatementRepo() extends AccessibilityStatementsRepo 
     serviceUrl                   = "some.test.service",
     contactFrontendServiceId     = s"some.contact-frontend",
     complianceStatus             = FullCompliance,
+    automatedTestingOnly         = None,
     accessibilityProblems        = Seq(),
     milestones                   = Seq(),
     accessibilitySupportEmail    = None,
@@ -43,7 +44,8 @@ case class TestAccessibilityStatementRepo() extends AccessibilityStatementsRepo 
     statementVisibility          = Draft,
     serviceLastTestedDate        = new GregorianCalendar(2020, Calendar.FEBRUARY, 28).getTime,
     statementCreatedDate         = new GregorianCalendar(2020, Calendar.MARCH, 15).getTime,
-    statementLastUpdatedDate     = new GregorianCalendar(2020, Calendar.MAY, 1).getTime
+    statementLastUpdatedDate     = new GregorianCalendar(2020, Calendar.MAY, 1).getTime,
+    testingNotes                 = None
   )
   private val welshStatement       = englishStatement.copy(serviceName = "Test (Welsh)")
   private val englishOnlyStatement = englishStatement.copy(serviceName = "English Only")

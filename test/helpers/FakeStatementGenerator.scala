@@ -65,6 +65,7 @@ object FakeStatementGenerator extends App {
       serviceUrl                   = s"/$serviceKey",
       contactFrontendServiceId     = serviceKey,
       complianceStatus             = complianceStatus,
+      automatedTestingOnly         = None,
       accessibilityProblems        = accessibilityProblems,
       milestones                   = milestones,
       accessibilitySupportEmail    = Some(s"$serviceKey@example.com"),
@@ -73,7 +74,8 @@ object FakeStatementGenerator extends App {
       statementVisibility          = Draft,
       serviceLastTestedDate        = generateDate,
       statementCreatedDate         = generateDate,
-      statementLastUpdatedDate     = generateDate
+      statementLastUpdatedDate     = generateDate,
+      testingNotes                 = None
     )
   }
 
